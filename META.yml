@@ -28,4 +28,4 @@ requires:
   Scalar::Util: 0
   strict: 0
   warnings: 0
-version: 1.20130718.2341
+version: 1.20130719.1300

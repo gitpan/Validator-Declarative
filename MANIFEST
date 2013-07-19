@@ -1,7 +1,9 @@
+CHANGES
 LICENSE
 MANIFEST
 META.yml
 Makefile.PL
+README
 dist.ini
 lib/Validator/Declarative.pm
 lib/Validator/Declarative/Rules/ParametrizedType.pm
@@ -19,6 +21,9 @@ t/parametrized-types/can-one.t
 t/parametrized-types/class-multi.t
 t/parametrized-types/class-one.t
 t/parametrized-types/class-simple.t
+t/parametrized-types/ducktype-multi.t
+t/parametrized-types/ducktype-one.t
+t/parametrized-types/enum.t
 t/parametrized-types/max.t
 t/parametrized-types/min.t
 t/parametrized-types/ref-multi.t
@@ -43,6 +48,7 @@ t/simple-types/float.t
 t/simple-types/hhmm.t
 t/simple-types/id.t
 t/simple-types/int.t
+t/simple-types/integer.t
 t/simple-types/mdy.t
 t/simple-types/month.t
 t/simple-types/msec.t

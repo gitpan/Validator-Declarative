@@ -20,9 +20,10 @@ sub check_type_validation {
     # for lives_ok + is_deeply + throws_ok + message for each error
     plan tests => 4 + 1 + scalar( @{ $param{bad} } );
 
-    my ( $type, $values, @result, $type_name, $stringified_type );
+    my ( $type, $aliased_type, $values, @result, $type_name, $stringified_type );
 
     $type = $param{type};
+    $aliased_type = $param{aliased_to} || '';
 
     ($type_name) =    # there should be exactly one k/v pair
           ref($type) eq 'HASH'  ? keys(%$type)
@@ -61,7 +62,7 @@ sub check_type_validation {
     my $error_text = "$@";
     for ( 1 .. scalar @$values ) {
         my $param = sprintf( "param_${type_name}_%02d", $_ );
-        my $regexp = sprintf( "%s: .* does not satisfy %s", $param, uc($type_name) );
+        my $regexp = sprintf( "%s: .* does not satisfy %s", $param, uc( $aliased_type || $type_name ) );
         like $error_text, qr/^$regexp/m, "message about $param";
     }
 

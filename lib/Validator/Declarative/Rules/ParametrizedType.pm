@@ -4,7 +4,7 @@ use warnings;
 
 package Validator::Declarative::Rules::ParametrizedType;
 {
-  $Validator::Declarative::Rules::ParametrizedType::VERSION = '1.20130718.2341';
+  $Validator::Declarative::Rules::ParametrizedType::VERSION = '1.20130719.1300';
 }
 
 # ABSTRACT: Declarative parameters validation - default simple types rules
@@ -105,15 +105,15 @@ sub _smart_match {
 sub _register_default_parametrized_types {
     Validator::Declarative::register_type(
         ## simple parametrized types
-        min       => \&_validate_min,
-        max       => \&_validate_max,
-        ref       => \&_validate_ref,
-        class     => \&_validate_class,
-        duck_type => \&_validate_can,
-        can       => \&_validate_can,
-        can_any   => \&_validate_can_any,
-        enum      => \&_validate_any_of,
-        any_of    => \&_validate_any_of,
+        min      => \&_validate_min,
+        max      => \&_validate_max,
+        ref      => \&_validate_ref,
+        class    => \&_validate_class,
+        ducktype => \&_validate_can,
+        can      => \&_validate_can,
+        can_any  => \&_validate_can_any,
+        any_of   => \&_validate_any_of,
+        enum     => \&_validate_any_of,
         ## complex/recursive parametrized types
         list_of => \&Validator::Declarative::_validate_pass,
         hash_of => \&Validator::Declarative::_validate_pass,
@@ -137,7 +137,7 @@ Validator::Declarative::Rules::ParametrizedType - Declarative parameters validat
 
 =head1 VERSION
 
-version 1.20130718.2341
+version 1.20130719.1300
 
 =head1 DESCRIPTION
 

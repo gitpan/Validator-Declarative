@@ -4,7 +4,7 @@ use warnings;
 
 package Validator::Declarative::Rules::SimpleType;
 {
-  $Validator::Declarative::Rules::SimpleType::VERSION = '1.20130718.2341';
+  $Validator::Declarative::Rules::SimpleType::VERSION = '1.20130719.1300';
 }
 
 # ABSTRACT: Declarative parameters validation - default simple types rules
@@ -18,33 +18,33 @@ use Email::Valid;
 sub _validate_bool {
     my ($input) = @_;
     throw Error::Simple('does not satisfy BOOL')
-       if ref($input) || $input !~ m/^(1|true|t|yes|y|0|false|f|no|n|)$/i;
+        if ref($input) || $input !~ m/^(1|true|t|yes|y|0|false|f|no|n|)$/i;
 }
 
 sub _validate_float {
     my ($input) = @_;
     throw Error::Simple('does not satisfy FLOAT')
-       if ref($input) || $input !~ m/^[+-]?\d+(:?\.\d*)?$/;
+        if ref($input) || $input !~ m/^[+-]?\d+(:?\.\d*)?$/;
 }
 
 sub _validate_int {
     my ($input) = @_;
     throw Error::Simple('does not satisfy INT')
-       if ref($input) || $input !~ m/^[+-]?\d+$/;
+        if ref($input) || $input !~ m/^[+-]?\d+$/;
 }
 
 sub _validate_positive {
     my ($input) = @_;
     no warnings;
     throw Error::Simple('does not satisfy POSITIVE')
-       if ref($input) || $input <= 0;
+        if ref($input) || $input <= 0;
 }
 
 sub _validate_negative {
     my ($input) = @_;
     no warnings;
     throw Error::Simple('does not satisfy NEGATIVE')
-       if ref($input) || $input >= 0;
+        if ref($input) || $input >= 0;
 }
 
 sub _validate_id {
@@ -61,7 +61,7 @@ sub _validate_id {
 sub _validate_email {
     my ($input) = @_;
     throw Error::Simple('does not satisfy EMAIL')
-       if ref($input) || !Email::Valid->address($input);
+        if ref($input) || !Email::Valid->address($input);
 }
 
 sub _validate_year {
@@ -116,55 +116,50 @@ sub _validate_ymd {
     my ($input) = @_;
     no warnings;
     throw Error::Simple('does not satisfy YMD')
-       if ref($input)
-       || $input !~ m/^(\d{4})-(\d{2})-(\d{2})$/
-       || $1 < 1970
-       || $1 > 3000
-       || $2 < 1
-       || $2 > 12
-       || $3 < 1
-       || $3 > 31;
+        if ref($input)
+        || $input !~ m/^(\d{4})-(\d{2})-(\d{2})$/
+        || $1 < 1970
+        || $1 > 3000
+        || $2 < 1
+        || $2 > 12
+        || $3 < 1
+        || $3 > 31;
 }
 
 sub _validate_mdy {
     my ($input) = @_;
     no warnings;
     throw Error::Simple('does not satisfy MDY')
-       if ref($input)
-       || $input !~ m|^(\d\d?)/(\d\d?)/(\d\d(?:\d\d)?)$|
-       || $1 < 1
-       || $1 > 12
-       || $2 < 1
-       || $2 > 31
-       || !( $3 > 0 && $3 < 100 || $3 >= 1970 && $3 <= 3000 );
+        if ref($input)
+        || $input !~ m|^(\d\d?)/(\d\d?)/(\d\d(?:\d\d)?)$|
+        || $1 < 1
+        || $1 > 12
+        || $2 < 1
+        || $2 > 31
+        || !( $3 > 0 && $3 < 100 || $3 >= 1970 && $3 <= 3000 );
 }
 
 sub _validate_time {
     my ($input) = @_;
     no warnings;
     throw Error::Simple('does not satisfy TIME')
-       if ref($input) || $input !~ m/^(\d\d):(\d\d):(\d\d)$/ || $1 > 23 || $2 > 59 || $3 > 59;
+        if ref($input) || $input !~ m/^(\d\d):(\d\d):(\d\d)$/ || $1 > 23 || $2 > 59 || $3 > 59;
 }
 
 sub _validate_hhmm {
     my ($input) = @_;
     no warnings;
     throw Error::Simple('does not satisfy HHMM')
-       if ref($input) || $input !~ m/^(\d\d):(\d\d)$/ || $1 > 23 || $2 > 59;
+        if ref($input) || $input !~ m/^(\d\d):(\d\d)$/ || $1 > 23 || $2 > 59;
 }
 
 sub _validate_timestamp {
     my ($input) = @_;
+    ## almost same as float, but can't have sign
+    ## we can't use _validate_float && _validate_positive because input can be zero
     no warnings;
     throw Error::Simple('does not satisfy TIMESTAMP')
-       if ref($input) || $input !~ m/^\d+(:?\.\d*)?$/;
-}
-
-sub _validate_msec {
-    my ($input) = @_;
-    no warnings;
-    throw Error::Simple('does not satisfy MSEC')
-       if ref($input) || $input !~ m/^\d+(:?\.\d*)?$/;
+        if ref($input) || $input !~ m/^\d+(:?\.\d*)?$/;
 }
 
 sub _register_default_simple_types {
@@ -189,7 +184,7 @@ sub _register_default_simple_types {
         time      => \&_validate_time,
         hhmm      => \&_validate_hhmm,
         timestamp => \&_validate_timestamp,
-        msec      => \&_validate_msec,
+        msec      => \&_validate_timestamp,
     );
 }
 
@@ -208,7 +203,7 @@ Validator::Declarative::Rules::SimpleType - Declarative parameters validation - 
 
 =head1 VERSION
 
-version 1.20130718.2341
+version 1.20130719.1300
 
 =head1 DESCRIPTION
 

@@ -2,7 +2,7 @@ NAME
     Validator::Declarative - Declarative parameters validation
 
 VERSION
-    version 1.20130719.1300
+    version 1.20130722.2105
 
 SYNOPSIS
         sub MakeSomethingCool {
@@ -220,6 +220,14 @@ IMPLEMENTATION
   Converters
    default => value
     substitute $_ with provided value (only when actual parameter is undef)
+
+   assume_true
+    substitute $_ with 0 if it looks like false value (see bool, except for
+    empty string), and 1 otherwise
+
+   assume_false
+    substitute $_ with 1 if it looks like true value (see bool, except for
+    empty string), and 0 otherwise
 
   Constraints
    required

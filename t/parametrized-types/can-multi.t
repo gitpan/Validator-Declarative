@@ -2,7 +2,6 @@
 
 use strict;
 use warnings;
-use lib './t/lib';
 
 use Test::Validator::Declarative qw/ check_type_validation /;
 

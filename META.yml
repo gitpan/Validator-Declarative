@@ -4,12 +4,8 @@ author:
   - 'Oleg Kostyuk <cub@cpan.org>'
 build_requires:
   ClassOne: 0
-  Data::Dumper: 0
-  Exporter: 0
   File::Find: 0
   File::Temp: 0
-  Test::Exception: 0
-  Test::More: 0
   base: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
@@ -21,11 +17,15 @@ meta-spec:
   version: 1.4
 name: Validator-Declarative
 requires:
+  Data::Dumper: 0
   Email::Valid: 0
   Error: 0
+  Exporter: 0
   Module::Load: 0
   Readonly: 0
   Scalar::Util: 0
+  Test::Exception: 0
+  Test::More: 0
   strict: 0
   warnings: 0
-version: 1.20130719.1300
+version: 1.20130722.2105

@@ -13,12 +13,8 @@ my %WriteMakefileArgs = (
   "AUTHOR" => "Oleg Kostyuk <cub\@cpan.org>",
   "BUILD_REQUIRES" => {
     "ClassOne" => 0,
-    "Data::Dumper" => 0,
-    "Exporter" => 0,
     "File::Find" => 0,
     "File::Temp" => 0,
-    "Test::Exception" => 0,
-    "Test::More" => 0,
     "base" => 0
   },
   "CONFIGURE_REQUIRES" => {
@@ -29,17 +25,21 @@ my %WriteMakefileArgs = (
   "LICENSE" => "bsd",
   "NAME" => "Validator::Declarative",
   "PREREQ_PM" => {
+    "Data::Dumper" => 0,
     "Email::Valid" => 0,
     "Error" => 0,
+    "Exporter" => 0,
     "Module::Load" => 0,
     "Readonly" => 0,
     "Scalar::Util" => 0,
+    "Test::Exception" => 0,
+    "Test::More" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "1.20130719.1300",
+  "VERSION" => "1.20130722.2105",
   "test" => {
-    "TESTS" => "t/*.t t/parametrized-types/*.t t/simple-types/*.t"
+    "TESTS" => "t/*.t t/converters/*.t t/parametrized-types/*.t t/simple-types/*.t"
   }
 );
 

@@ -4,7 +4,7 @@ use warnings;
 
 package Validator::Declarative::Rules::SimpleType;
 {
-  $Validator::Declarative::Rules::SimpleType::VERSION = '1.20130719.1300';
+  $Validator::Declarative::Rules::SimpleType::VERSION = '1.20130722.2105';
 }
 
 # ABSTRACT: Declarative parameters validation - default simple types rules
@@ -203,7 +203,7 @@ Validator::Declarative::Rules::SimpleType - Declarative parameters validation - 
 
 =head1 VERSION
 
-version 1.20130719.1300
+version 1.20130722.2105
 
 =head1 DESCRIPTION
 

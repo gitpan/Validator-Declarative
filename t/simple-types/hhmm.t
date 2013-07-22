@@ -2,7 +2,6 @@
 
 use strict;
 use warnings;
-use lib './t/lib';
 
 use Test::Validator::Declarative qw/ check_type_validation /;
 
@@ -16,7 +15,7 @@ check_type_validation(
             map {
                 my $h = $_;
                 sprintf( '%02d:%02d', $h, $m );
-               } @$hour
+                } @$hour
         } @$minute
     ],
     bad => [

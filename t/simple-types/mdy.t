@@ -2,7 +2,6 @@
 
 use strict;
 use warnings;
-use lib './t/lib';
 
 use Test::Validator::Declarative qw/ check_type_validation /;
 
@@ -19,10 +18,10 @@ check_type_validation(
                 map {
                     my $y = $_;
                     $y < 100
-                       ? sprintf( '%02d/%02d/%02d', $m, $d, $y )
-                       : sprintf( '%02d/%02d/%04d', $m, $d, $y );
-                   } @$year
-               } @$month
+                        ? sprintf( '%02d/%02d/%02d', $m, $d, $y )
+                        : sprintf( '%02d/%02d/%04d', $m, $d, $y );
+                    } @$year
+                } @$month
         } @$day
     ],
     bad => [

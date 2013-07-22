@@ -5,7 +5,9 @@ META.yml
 Makefile.PL
 README
 dist.ini
+lib/Test/Validator/Declarative.pm
 lib/Validator/Declarative.pm
+lib/Validator/Declarative/Rules/Converters.pm
 lib/Validator/Declarative/Rules/ParametrizedType.pm
 lib/Validator/Declarative/Rules/SimpleType.pm
 t/00-compile.t
@@ -13,7 +15,8 @@ t/00-load.t
 t/author-critic.t
 t/author-test-eol.t
 t/builtin.t
-t/lib/Test/Validator/Declarative.pm
+t/converters/assume_false.t
+t/converters/assume_true.t
 t/parametrized-types/any-of.t
 t/parametrized-types/can-any.t
 t/parametrized-types/can-multi.t
